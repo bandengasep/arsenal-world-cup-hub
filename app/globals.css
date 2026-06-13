@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Arsenal World Cup Hub — design tokens (exported from Paper mock).
+   See docs/design/arsenal-design-system.md for the source values. */
+@theme inline {
+  --font-display: var(--font-anton);
+  --font-sans: var(--font-inter);
+
+  --color-white: #ffffff;
+  --color-ink: #10182e;
+  --color-red: #e30613;
+  --color-red-live: #f00000;
+  --color-navy-2: #151925;
+  --color-navy-3: #19202f;
+  --color-gold: #beac88;
+  --color-divider: #e1e1e1;
+  --color-card-border: #e6e6e6;
+  --color-inner-divider: #eeeeee;
+  --color-photo-bg: #e9ecf1;
+  --color-muted-1: #4f4f4f;
+  --color-muted-2: #7a7a7a;
+  --color-muted-3: #9a9a9a;
+  --color-muted-4: #8893a8;
+  --color-muted-5: #9aa3b2;
+}
+
+html,
+body {
+  background: #ffffff;
+  color: #10182e;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display type — Anton, with system fallback for diacritics (Ø, Ö, Ã, É). */
+.font-display {
+  font-family: var(--font-anton), system-ui, sans-serif;
+}
+
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.live-dot {
+  animation: live-pulse 1.4s ease-in-out infinite;
+}

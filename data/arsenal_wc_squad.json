@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "tournament": "FIFA World Cup 2026 (USA/Canada/Mexico, 11 Jun – 19 Jul 2026)",
+    "club": "Arsenal FC",
+    "asOf": "2026-06-13",
+    "summary": { "atWorldCup": 15, "nations": 9 },
+    "provenance": "arsenal-wc-research workflow — multi-source web research + adversarial verification against announced 26-man squads (Spain 25 May, England/Tuchel, Brazil/Ancelotti, France/Deschamps, Germany/Nagelsmann, Belgium, Norway 21 May, Ecuador 1 Jun). Doubles as demo-safety snapshot fallback.",
+    "doNotTrust_withoutRefresh": "Statuses are correct as of 2026-06-13; refresh via Bright Data at build time for live scores."
+  },
+  "players": [
+    { "name": "David Raya",          "pos": "GK",  "nation": "Spain",   "code": "ESP", "atWorldCup": true },
+    { "name": "William Saliba",      "pos": "DEF", "nation": "France",  "code": "FRA", "atWorldCup": true },
+    { "name": "Gabriel Magalhães",   "pos": "DEF", "nation": "Brazil",  "code": "BRA", "atWorldCup": true },
+    { "name": "Piero Hincapié",      "pos": "DEF", "nation": "Ecuador", "code": "ECU", "atWorldCup": true },
+    { "name": "Martin Ødegaard",     "pos": "MID", "nation": "Norway",  "code": "NOR", "atWorldCup": true, "note": "Norway captain; first WC since 1998 (Haaland 16 goals in qualifying)" },
+    { "name": "Declan Rice",         "pos": "MID", "nation": "England", "code": "ENG", "atWorldCup": true },
+    { "name": "Martín Zubimendi",    "pos": "MID", "nation": "Spain",   "code": "ESP", "atWorldCup": true },
+    { "name": "Mikel Merino",        "pos": "MID", "nation": "Spain",   "code": "ESP", "atWorldCup": true },
+    { "name": "Bukayo Saka",         "pos": "FWD", "nation": "England", "code": "ENG", "atWorldCup": true },
+    { "name": "Gabriel Martinelli",  "pos": "FWD", "nation": "Brazil",  "code": "BRA", "atWorldCup": true },
+    { "name": "Kai Havertz",         "pos": "FWD", "nation": "Germany", "code": "GER", "atWorldCup": true },
+    { "name": "Leandro Trossard",    "pos": "FWD", "nation": "Belgium", "code": "BEL", "atWorldCup": true },
+    { "name": "Viktor Gyökeres",     "pos": "FWD", "nation": "Sweden",  "code": "SWE", "atWorldCup": true },
+    { "name": "Eberechi Eze",        "pos": "MID", "nation": "England", "code": "ENG", "atWorldCup": true, "note": "listed among England midfielders/No.10s" },
+    { "name": "Noni Madueke",        "pos": "FWD", "nation": "England", "code": "ENG", "atWorldCup": true }
+  ],
+  "absent": [
+    { "name": "Jurriën Timber",      "nation": "Netherlands", "reason": "Ruled OUT — groin injury (replaced by Geertruida)" },
+    { "name": "Gabriel Jesus",       "nation": "Brazil",      "reason": "Omitted from final 26 (post-ACL)" },
+    { "name": "Riccardo Calafiori",  "nation": "Italy",       "reason": "Italy failed to qualify (lost playoff final to Bosnia on pens)" },
+    { "name": "Christian Nørgaard",  "nation": "Denmark",     "reason": "Denmark failed to qualify (lost playoff final to Czechia on pens)" },
+    { "name": "Ben White",           "nation": "England",     "reason": "Not selected (stepped away from international duty)" }
+  ],
+  "byNation": { "England": 4, "Spain": 3, "Brazil": 2, "France": 1, "Norway": 1, "Germany": 1, "Belgium": 1, "Sweden": 1, "Ecuador": 1 },
+  "nationsRepresented": ["England", "Spain", "Brazil", "France", "Norway", "Germany", "Belgium", "Sweden", "Ecuador"]
+}
