@@ -29,22 +29,30 @@ function SponsorTag({ name, use }: { name: string; use: string }) {
   );
 }
 
-function ModuleSlide({ n, kicker, title, body, tags, dark }: { n: string; kicker: string; title: string; body: string; tags: string[]; dark?: boolean }) {
+function ModuleSlide({ n, kicker, title, body, tags, dark, img }: { n: string; kicker: string; title: string; body: string; tags: string[]; dark?: boolean; img?: string }) {
   const fg = dark ? "#fff" : INK;
   const sub = dark ? MUTED : "#7A7A7A";
-  return (
-    <div style={{ maxWidth: 920 }}>
+  const text = (
+    <div style={{ flex: img ? "1 1 340px" : "1 1 auto", minWidth: 320, maxWidth: img ? 500 : 920 }}>
       <div className="flex items-baseline gap-4">
-        <span className="font-display" style={{ fontSize: 64, color: RED, lineHeight: "100%" }}>{n}</span>
+        <span className="font-display" style={{ fontSize: 56, color: RED, lineHeight: "100%" }}>{n}</span>
         <Eyebrow>{kicker}</Eyebrow>
       </div>
-      <h2 className="font-display" style={{ fontSize: 72, lineHeight: "94%", color: fg, marginTop: 18 }}>{title}</h2>
-      <p style={{ fontSize: 20, lineHeight: "30px", color: sub, marginTop: 22, maxWidth: 760 }}>{body}</p>
-      <div className="flex flex-wrap gap-2" style={{ marginTop: 28 }}>
+      <h2 className="font-display" style={{ fontSize: img ? 54 : 72, lineHeight: "94%", color: fg, marginTop: 16 }}>{title}</h2>
+      <p style={{ fontSize: 18, lineHeight: "27px", color: sub, marginTop: 20, maxWidth: 520 }}>{body}</p>
+      <div className="flex flex-wrap gap-2" style={{ marginTop: 24 }}>
         {tags.map((t) => (
           <span key={t} style={{ border: `1px solid ${dark ? "rgba(255,255,255,0.25)" : "#E1E1E1"}`, color: fg, borderRadius: 100, padding: "7px 14px", fontSize: 13, fontWeight: 700 }}>{t}</span>
         ))}
       </div>
+    </div>
+  );
+  if (!img) return text;
+  return (
+    <div className="flex items-center gap-10" style={{ flexWrap: "wrap", width: "100%" }}>
+      {text}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={img} alt={title} style={{ flex: "1 1 440px", minWidth: 380, maxWidth: 600, borderRadius: 10, border: dark ? "1px solid rgba(255,255,255,0.14)" : "1px solid #E6E6E6", boxShadow: "0 24px 60px rgba(0,0,0,0.30)" }} />
     </div>
   );
 }
@@ -79,29 +87,25 @@ export default function DeckPage() {
         </div>
       ),
     },
-    // 2 — Concept + screenshot
+    // 2 — Concept (typographic)
     {
       bg: "#fff",
       node: (
-        <div className="flex items-center gap-12" style={{ flexWrap: "wrap" }}>
-          <div style={{ flex: "1 1 380px", minWidth: 340 }}>
-            <Eyebrow>THE IDEA</Eyebrow>
-            <h2 className="font-display" style={{ fontSize: 60, lineHeight: "94%", color: INK, marginTop: 16 }}>
-              ONE CLUB,<br />NINE NATIONS,<br />ONE LENS.
-            </h2>
-            <p style={{ fontSize: 19, lineHeight: "29px", color: "#4F4F4F", marginTop: 22 }}>
-              A generic World Cup hub is noise. Arsenal fans want to follow <strong style={{ color: INK }}>their</strong> players.
-              This hub is skinned like arsenal.com and tracks all 15 Gunners — live status, results, fixtures,
-              and AI insight — in one place.
-            </p>
-            <div className="flex gap-8" style={{ marginTop: 28 }}>
-              <div><div className="font-display" style={{ fontSize: 48, color: RED }}>15</div><div style={{ fontSize: 12, letterSpacing: "0.12em", color: "#7A7A7A", fontWeight: 600 }}>PLAYERS</div></div>
-              <div><div className="font-display" style={{ fontSize: 48, color: INK }}>9</div><div style={{ fontSize: 12, letterSpacing: "0.12em", color: "#7A7A7A", fontWeight: 600 }}>NATIONS</div></div>
-              <div><div className="font-display" style={{ fontSize: 48, color: INK }}>5</div><div style={{ fontSize: 12, letterSpacing: "0.12em", color: "#7A7A7A", fontWeight: 600 }}>SPONSORS</div></div>
-            </div>
+        <div style={{ maxWidth: 1000 }}>
+          <Eyebrow>THE IDEA</Eyebrow>
+          <h2 className="font-display" style={{ fontSize: 80, lineHeight: "92%", color: INK, marginTop: 16 }}>
+            ONE CLUB, NINE<br />NATIONS, ONE LENS.
+          </h2>
+          <p style={{ fontSize: 22, lineHeight: "32px", color: "#4F4F4F", marginTop: 26, maxWidth: 860 }}>
+            A generic World Cup hub is noise. Arsenal fans want to follow <strong style={{ color: INK }}>their</strong> players.
+            This hub is skinned like arsenal.com and tracks all 15 Gunners — live status, results, fixtures,
+            and AI insight — in one place.
+          </p>
+          <div className="flex gap-12" style={{ marginTop: 36 }}>
+            <div><div className="font-display" style={{ fontSize: 56, color: RED }}>15</div><div style={{ fontSize: 12, letterSpacing: "0.12em", color: "#7A7A7A", fontWeight: 600 }}>PLAYERS</div></div>
+            <div><div className="font-display" style={{ fontSize: 56, color: INK }}>9</div><div style={{ fontSize: 12, letterSpacing: "0.12em", color: "#7A7A7A", fontWeight: 600 }}>NATIONS</div></div>
+            <div><div className="font-display" style={{ fontSize: 56, color: INK }}>5</div><div style={{ fontSize: 12, letterSpacing: "0.12em", color: "#7A7A7A", fontWeight: 600 }}>SPONSORS</div></div>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/deck/gunners-today.png" alt="Gunners Today" style={{ flex: "1 1 460px", minWidth: 380, maxWidth: 620, borderRadius: 10, border: "1px solid #E6E6E6", boxShadow: "0 20px 50px rgba(16,24,46,0.18)" }} />
         </div>
       ),
     },
@@ -125,15 +129,15 @@ export default function DeckPage() {
       ),
     },
     // 4 — Gunners Today
-    { bg: "#fff", node: <ModuleSlide n="01" kicker="MODULE · BRIGHT DATA" title="GUNNERS TODAY" body="A player-first grid of all 15 Gunners with real arsenal.com headshots and a live status badge — LIVE, kickoff, or full-time. Live-first data with a demo-safety snapshot fallback so it's never blank." tags={["Bright Data", "Next.js 16", "Live status"]} /> },
+    { bg: "#fff", node: <ModuleSlide img="/deck/gunners-today.png" n="01" kicker="MODULE · BRIGHT DATA" title="GUNNERS TODAY" body="A player-first grid of all 15 Gunners with real arsenal.com headshots and a live status badge — LIVE, kickoff, or full-time. Live-first data with a demo-safety snapshot fallback so it's never blank." tags={["Bright Data", "Next.js 16", "Live status"]} /> },
     // 5 — Ask
-    { bg: INK, node: <ModuleSlide dark n="02" kicker="MODULE · KIMI · TOKENROUTER · BRIGHT DATA" title="ASK THE GUNNERS DESK" body="A streaming chat agent (Kimi via TokenRouter) with two tools — the official squad and live Bright Data web search — and a visible tool-trace so you watch it reason, search, and answer." tags={["Kimi K2.6", "TokenRouter", "Bright Data", "AI SDK v6"]} /> },
+    { bg: INK, node: <ModuleSlide dark img="/deck/ask.png" n="02" kicker="MODULE · KIMI · TOKENROUTER · BRIGHT DATA" title="ASK THE GUNNERS DESK" body="A streaming chat agent (Kimi via TokenRouter) with two tools — the official squad and live Bright Data web search — and a visible tool-trace so you watch it reason, search, and answer." tags={["Kimi K2.6", "TokenRouter", "Bright Data", "AI SDK v6"]} /> },
     // 6 — Oracle
-    { bg: "#fff", node: <ModuleSlide n="03" kicker="MODULE · KIMI · DAYTONA" title="PLAYER ORACLE" body="Pick a Gunner and Kimi K2.7-code WRITES a Monte-Carlo simulation of their next match; Daytona runs it live in an ephemeral sandbox and returns win probability + the player's expected impact — plus the generated code." tags={["Kimi K2.7-code", "Daytona", "Monte Carlo"]} /> },
+    { bg: "#fff", node: <ModuleSlide img="/deck/oracle.png" n="03" kicker="MODULE · KIMI · DAYTONA" title="PLAYER ORACLE" body="Pick a Gunner and Kimi K2.7-code WRITES a Monte-Carlo simulation of their next match; Daytona runs it live in an ephemeral sandbox and returns win probability + the player's expected impact — plus the generated code." tags={["Kimi K2.7-code", "Daytona", "Monte Carlo"]} /> },
     // 7 — Goals
-    { bg: INK, node: <ModuleSlide dark n="04" kicker="MODULE · VIDEODB" title="ARSENAL GOALS" body="Semantic search over Gunner goal highlights. VideoDB indexes the commentary, finds the exact moments you describe, and stitches them into a playable supercut — right in the browser." tags={["VideoDB", "Spoken-word index", "HLS"]} /> },
+    { bg: INK, node: <ModuleSlide dark img="/deck/goals.png" n="04" kicker="MODULE · VIDEODB" title="ARSENAL GOALS" body="Semantic search over Gunner goal highlights. VideoDB indexes the commentary, finds the exact moments you describe, and stitches them into a playable supercut — right in the browser." tags={["VideoDB", "Spoken-word index", "HLS"]} /> },
     // 8 — Briefing
-    { bg: "#fff", node: <ModuleSlide n="05" kicker="MODULE · TOKENROUTER" title="DAILY GUNNERS BRIEFING" body="An auto-written recap of the Gunners' day at the World Cup — generated through TokenRouter, demonstrating per-task model routing (a fast model for the snappy recap)." tags={["TokenRouter", "Auto-generated"]} /> },
+    { bg: "#fff", node: <ModuleSlide img="/deck/briefing.png" n="05" kicker="MODULE · TOKENROUTER" title="DAILY GUNNERS BRIEFING" body="An auto-written recap of the Gunners' day at the World Cup — generated through TokenRouter, demonstrating per-task model routing (a fast model for the snappy recap)." tags={["TokenRouter", "Auto-generated"]} /> },
     // 9 — Reliability
     {
       bg: INK,
